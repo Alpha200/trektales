@@ -1,0 +1,5 @@
+<div class="card-grid">
+  @for (destination of (destinations | async)?.data; track destination.id) {
+    <app-destination-card [destination]="destination"></app-destination-card>
+  }
+</div>
