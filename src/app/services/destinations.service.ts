@@ -14,7 +14,6 @@ export class DestinationsService {
   ) { }
 
   public getDestinations(): Observable<StrapiResponse<Destination>> {
-    const blb = "?sort[0]=rank:asc&pagination[pageSize]=10&pagination[page]=2&fields[0]=title&fields[1]=urlSlug&status=published&populate=location";
     const params = new HttpParams({
       fromObject: {
         sort: "rank:asc",
