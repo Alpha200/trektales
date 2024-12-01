@@ -3,14 +3,14 @@ import {Destination} from '@app/model/destination';
 import {environment} from '@env/environment';
 
 @Component({
-  selector: 'app-destination-card',
-  imports: [],
-  templateUrl: './destination-card.component.html',
-  styleUrl: './destination-card.component.scss'
+	selector: 'app-destination-card',
+	imports: [],
+	templateUrl: './destination-card.component.html',
+	styleUrl: './destination-card.component.scss',
 })
 export class DestinationCardComponent {
-  public apiBaseUrl = environment.apiBaseUrl;
+	public apiBaseUrl = environment.apiBaseUrl;
 
-  @Input() destination!: Destination;
+	@Input() destination!: Destination;
 
 }

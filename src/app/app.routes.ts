@@ -3,17 +3,17 @@ import {DestinationsComponent} from '@app/destination-list/destinations/destinat
 import {DestinationDetailsComponent} from '@app/destination-details/destination-details/destination-details.component';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/destinations',
-    pathMatch: 'full'
-  },
-  {
-    path: 'destinations',
-    component: DestinationsComponent,
-  },
-  {
-    path: 'destinations/:destinationId',
-    component: DestinationDetailsComponent,
-  },
+	{
+		path: '',
+		redirectTo: '/destinations',
+		pathMatch: 'full',
+	},
+	{
+		path: 'destinations',
+		component: DestinationsComponent,
+	},
+	{
+		path: 'destinations/:destinationId',
+		component: DestinationDetailsComponent,
+	},
 ];

@@ -1,3 +1,3 @@
 export const environment = {
-  apiBaseUrl: "https://trektalesapi.sendzik.eu"
+	apiBaseUrl: "https://trektalesapi.sendzik.eu",
 };

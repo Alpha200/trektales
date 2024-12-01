@@ -8,21 +8,21 @@ import {Destination} from '@app/model/destination';
 import {RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-destinations',
-  imports: [
-    AsyncPipe,
-    DestinationCardComponent,
-    RouterLink,
-  ],
-  templateUrl: './destinations.component.html',
-  styleUrl: './destinations.component.scss'
+	selector: 'app-destinations',
+	imports: [
+		AsyncPipe,
+		DestinationCardComponent,
+		RouterLink,
+	],
+	templateUrl: './destinations.component.html',
+	styleUrl: './destinations.component.scss',
 })
 export class DestinationsComponent {
-  public destinations: Observable<StrapiResponse<Destination>>;
+	public destinations: Observable<StrapiResponse<Destination>>;
 
-  constructor(
-    destinationsService: DestinationsService,
-  ) {
-    this.destinations = destinationsService.getDestinations();
-  }
+	constructor(
+		destinationsService: DestinationsService,
+	) {
+		this.destinations = destinationsService.getDestinations();
+	}
 }
