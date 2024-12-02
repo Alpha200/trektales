@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'modern-normalize/modern-normalize.css';
+@import 'mapbox-gl/dist/mapbox-gl.css';
 
 :root {
 	--md-sys-color-primary: #ffb5a0;
@@ -54,6 +55,7 @@
 	--card-bg-color: var(--md-sys-color-surface-container);
 	--card-bg-color-elevated: var(--md-sys-color-surface-container-high);
 	--card-text-color: rgba(255, 227, 217, 0.95);
+	--md-sys-color-background-transparent: rgba(26, 17, 15, 0);
 }
 
 @font-face {
