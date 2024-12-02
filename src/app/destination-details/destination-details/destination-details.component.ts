@@ -5,13 +5,13 @@ import {ActivatedRoute} from '@angular/router';
 import {AsyncPipe} from '@angular/common';
 import {Destination} from '@app/model/destination';
 import {environment} from '@env/environment';
-import {PlaceMapComponent} from '@app/destination-details/place-map/place-map.component';
+import {PlaceDetailsComponent} from '@app/destination-details/place-details/place-details.component';
 
 @Component({
 	selector: 'app-destination-details',
 	imports: [
 		AsyncPipe,
-		PlaceMapComponent,
+		PlaceDetailsComponent,
 	],
 	templateUrl: './destination-details.component.html',
 	styleUrl: './destination-details.component.scss',

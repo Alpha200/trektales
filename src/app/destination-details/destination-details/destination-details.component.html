@@ -8,43 +8,7 @@
 		<div class="title">{{(destination | async)?.title}}</div>
 	</div>
 
-	<div class="row">
-		<div class="left">
-			<img
-				[src]="(backgroundImageUrl | async)"
-				[alt]="(destination | async)?.title"
-			/>
-			<img
-				[src]="(backgroundImageUrl | async)"
-				[alt]="(destination | async)?.title"
-			/>
-		</div>
-		<div class="right">
-			<h1>Some place</h1>
-			<div class="summary">
-				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="left">
-			<img
-				[src]="(backgroundImageUrl | async)"
-				[alt]="(destination | async)?.title"
-			/>
-			<img
-				[src]="(backgroundImageUrl | async)"
-				[alt]="(destination | async)?.title"
-			/>
-		</div>
-		<div class="right">
-			<h1>Some other place</h1>
-			<p class="summary">
-				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-			</p>
-			<app-place-map>
-			</app-place-map>
-		</div>
-	</div>
+	@for (place of (destination | async)?.places; track place.id) {
+		<app-place-details [place]="place"></app-place-details>
+	}
 }

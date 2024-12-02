@@ -1,0 +1,28 @@
+<div class="row">
+		<div class="left">
+			@for (picture of place.pictures; track picture.url) {
+				<img
+					[src]="apiBaseUrl + picture.url"
+					[alt]="'a'"
+				/>
+			}
+		</div>
+		<div class="right">
+			<h1>{{place.title}}</h1>
+			@for (detail of place.details; track detail.id) {
+				@if (detail.__component == 'destination.text') {
+					<p class="summary">
+						{{$any(detail).text}}
+					</p>
+				}
+
+				@if (detail.__component == 'destination.location') {
+					<app-place-map
+						[latitude]="$any(detail).latitude"
+						[longitude]="$any(detail).longitude"
+					>
+					</app-place-map>
+				}
+			}
+		</div>
+</div>

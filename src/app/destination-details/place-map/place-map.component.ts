@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NgxMapboxGLModule} from 'ngx-mapbox-gl';
 
 @Component({
@@ -10,5 +10,7 @@ import {NgxMapboxGLModule} from 'ngx-mapbox-gl';
   styleUrl: './place-map.component.scss'
 })
 export class PlaceMapComponent {
+	@Input() latitude!: number;
+	@Input() longitude!: number;
 
 }
