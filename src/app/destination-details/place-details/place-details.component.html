@@ -20,7 +20,7 @@
 
 			@for (detail of place.details; track detail.id) {
 				@if (detail.__component == 'destination.text') {
-					<p class="summary">
+					<p class="summary" [class.comment]="$any(detail).textType === 'comment'">
 						{{$any(detail).text}}
 					</p>
 				}

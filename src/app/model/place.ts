@@ -16,6 +16,7 @@ export interface StrapiComponent {
 
 export interface TextComponent extends StrapiComponent {
 	text: string;
+	textType: string;
 }
 
 export interface LocationComponent extends StrapiComponent {
