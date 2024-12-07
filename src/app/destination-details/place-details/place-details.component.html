@@ -1,8 +1,8 @@
 <div class="row">
 		<div class="left">
-			@for (picture of place.pictures; track picture.url) {
+			@for (picture of place.pictures; track picture.id) {
 				<img
-					[src]="apiBaseUrl + picture.url"
+					[src]="apiBaseUrl + $any(picture).image.url"
 					[alt]="'a'"
 				/>
 			}
@@ -17,11 +17,13 @@
 				}
 
 				@if (detail.__component == 'destination.location') {
-					<app-place-map
-						[latitude]="$any(detail).latitude"
-						[longitude]="$any(detail).longitude"
-					>
-					</app-place-map>
+					<a href="https://maps.google.com/?ll={{$any(detail).latitude}},{{$any(detail).longitude}}" target="_blank" rel="noopener">
+						<app-place-map
+							[latitude]="$any(detail).latitude"
+							[longitude]="$any(detail).longitude"
+						>
+						</app-place-map>
+					</a>
 				}
 			}
 		</div>

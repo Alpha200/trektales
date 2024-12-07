@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DestinationsService} from '@app/services/destinations.service';
-import {filter, map, Observable, switchMap, throttleTime} from 'rxjs';
+import {distinctUntilKeyChanged, filter, map, Observable, switchMap} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 import {AsyncPipe} from '@angular/common';
 import {Destination} from '@app/model/destination';
@@ -16,23 +16,26 @@ import {PlaceDetailsComponent} from '@app/destination-details/place-details/plac
 	templateUrl: './destination-details.component.html',
 	styleUrl: './destination-details.component.scss',
 })
-export class DestinationDetailsComponent {
+export class DestinationDetailsComponent implements OnInit {
 	public apiBaseUrl = environment.apiBaseUrl;
-	public destination: Observable<Destination>;
-	public backgroundImageUrl: Observable<string>;
+	public destination!: Observable<Destination>;
+	public backgroundImageUrl!: Observable<string>;
 
 	constructor(
-		destinationService: DestinationsService,
-		route: ActivatedRoute,
+		private destinationService: DestinationsService,
+		private route: ActivatedRoute,
 	) {
-		this.destination = route.params.pipe(
+	}
+
+	public ngOnInit() {
+		this.destination = this.route.params.pipe(
 			filter((param) => param?.["destinationId"] != null),
-			throttleTime(500),
+			distinctUntilKeyChanged("destinationId"),
 			switchMap(
-				(params) => destinationService.getDestination(params["destinationId"])
+				(params) => this.destinationService.getDestination(params["destinationId"])
 			),
 			map((response) => response.data)
-		)
+		);
 
 		this.backgroundImageUrl = this.destination.pipe(
 			filter((destination) => destination?.titlePicture?.url != null),
