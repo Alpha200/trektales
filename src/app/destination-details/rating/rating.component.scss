@@ -7,3 +7,13 @@ svg {
 .bg svg {
 	fill: var(--md-sys-color-inverse-primary);
 }
+
+.half {
+	.star-fg {
+		fill: var(--md-sys-color-primary);
+	}
+
+	.star-bg {
+		fill: var(--md-sys-color-inverse-primary);
+	}
+}

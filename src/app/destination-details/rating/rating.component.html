@@ -1,7 +1,11 @@
-@for (i of [].constructor(rating); track $index) {
-	<svg-icon src="star.svg" />
+@for (i of [].constructor(Math.floor(rating / 2)); track $index) {
+	<svg-icon src="star-full.svg" />
 }
 
-@for (i of [].constructor(5 - rating); track $index) {
-	<svg-icon class="bg" src="star.svg" />
+@if (rating % 2 === 1) {
+	<svg-icon class="half" src="star-half.svg" />
+}
+
+@for (i of [].constructor(Math.floor((10 - rating) / 2)); track $index) {
+	<svg-icon class="bg" src="star-full.svg" />
 }

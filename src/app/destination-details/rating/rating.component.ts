@@ -13,4 +13,5 @@ export class RatingComponent {
 	@Input()
 	public rating!: number;
 
+	protected readonly Math = Math;
 }
