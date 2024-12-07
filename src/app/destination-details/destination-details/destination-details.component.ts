@@ -6,12 +6,14 @@ import {AsyncPipe} from '@angular/common';
 import {Destination} from '@app/model/destination';
 import {environment} from '@env/environment';
 import {PlaceDetailsComponent} from '@app/destination-details/place-details/place-details.component';
+import {SummaryMapComponent} from '@app/destination-details/summary-map/summary-map.component';
 
 @Component({
 	selector: 'app-destination-details',
 	imports: [
 		AsyncPipe,
 		PlaceDetailsComponent,
+		SummaryMapComponent,
 	],
 	templateUrl: './destination-details.component.html',
 	styleUrl: './destination-details.component.scss',

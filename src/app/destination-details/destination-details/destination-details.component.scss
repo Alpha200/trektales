@@ -2,6 +2,9 @@
 	max-height: 600px;
 	overflow: hidden;
 	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	@media (max-width: 1000px) {
 		max-height: 500px;
@@ -40,5 +43,22 @@
 		height: 100%;
 
 		background: linear-gradient(to bottom,  var(--md-sys-color-background-transparent) 70%, var(--md-sys-color-background) 97%);
+	}
+}
+
+.destination-summary {
+	display: flex;
+	flex-direction: row;
+
+	.left {
+		width: 50%;
+		padding: 2rem;
+	}
+
+	.right {
+		width: 50%;
+		padding: 2rem;
+		app-place-map {
+		}
 	}
 }

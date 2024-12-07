@@ -1,0 +1,9 @@
+svg {
+	fill: var(--md-sys-color-primary);
+	width: 1rem;
+	height: auto;
+}
+
+.bg svg {
+	fill: var(--md-sys-color-inverse-primary);
+}

@@ -9,6 +9,15 @@
 		</div>
 		<div class="right">
 			<h1>{{place.title}}</h1>
+			<div class="info">
+				@if(place.rating != null) {
+					<app-rating [rating]="place.rating"></app-rating>
+				}
+				@if(place.visited != null) {
+					<div>Visited {{place.visited | formatMonthYear}}</div>
+				}
+			</div>
+
 			@for (detail of place.details; track detail.id) {
 				@if (detail.__component == 'destination.text') {
 					<p class="summary">

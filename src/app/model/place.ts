@@ -1,6 +1,8 @@
 import {Picture} from '@app/model/picture';
 
 export interface Place {
+	visited?: string;
+	rating?: number;
 	details?: StrapiComponent[];
 	pictures?: StrapiComponent[];
 	id: string;

@@ -1,0 +1,7 @@
+@for (i of [].constructor(rating); track $index) {
+	<svg-icon src="star.svg" />
+}
+
+@for (i of [].constructor(5 - rating); track $index) {
+	<svg-icon class="bg" src="star.svg" />
+}
