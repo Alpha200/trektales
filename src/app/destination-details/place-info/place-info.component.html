@@ -1,0 +1,8 @@
+<div class="info">
+	@if (place.rating != null) {
+		<app-rating [rating]="place.rating"></app-rating>
+	}
+	@if (place.visited != null) {
+		<div>Visited {{ place.visited | formatMonthYear }}</div>
+	}
+</div>

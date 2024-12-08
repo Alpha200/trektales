@@ -2,6 +2,10 @@
 	display: flex;
 	flex-direction: row;
 
+	h1 {
+		margin-top: 0;
+	}
+
 	.left {
 		width: 75%;
 		margin: 1rem 1rem 1rem 1rem;
@@ -15,18 +19,18 @@
 			border-radius: 10px;
 			margin-bottom: 1rem;
 		}
+
+		.meta {
+			display: none;
+		}
 	}
 
 	.right {
 		width: 25%;
 		top: 0;
-		padding: 1rem;
+		margin: 1rem;
 		position: sticky;
 		align-self: flex-start;
-
-		h1 {
-			margin-top: 0;
-		}
 
 		.summary {
 			margin-bottom: 1rem;
@@ -35,12 +39,6 @@
 			&.comment {
 				font-style: italic;
 			}
-		}
-
-		.info {
-			display: flex;
-			flex-direction: row;
-			gap: 1rem;
 		}
 	}
 
@@ -55,15 +53,30 @@
 	}
 
 	@media (max-width: 550px) {
-		flex-direction: column-reverse;
+		flex-direction: column;
 
 		.left {
 			width: unset;
+
+			.meta {
+				display: unset;
+				margin-bottom: 1rem;
+				width: 100%;
+			}
 		}
 
 		.right {
 			position: unset;
 			width: unset;
+			margin-top: 0;
+
+			.meta {
+				display: none;
+			}
+
+			.summary {
+				margin-top: 0;
+			}
 		}
 	}
 }
