@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
-import {NgxMapboxGLModule} from 'ngx-mapbox-gl';
+import {NgxMapLibreGLModule} from '@maplibre/ngx-maplibre-gl';
 
 @Component({
   selector: 'app-place-map',
   imports: [
-	  NgxMapboxGLModule,
+	  NgxMapLibreGLModule,
   ],
   templateUrl: './place-map.component.html',
   styleUrl: './place-map.component.scss'

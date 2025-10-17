@@ -1,8 +1,10 @@
+<!-- Need to disable attribution Control as it always expands fully and takes too much space. Attribution will be given at the bottom of the page -->
 <mgl-map
-	[style]="'mapbox://styles/mapbox/streets-v12'"
+	[style]="'https://tiles.openfreemap.org/styles/liberty'"
 	[zoom]="[15]"
 	[center]="[longitude,latitude]"
 	[interactive]="false"
+	[attributionControl]="false"
 >
 	<mgl-marker
 		[lngLat]="[longitude,latitude]"

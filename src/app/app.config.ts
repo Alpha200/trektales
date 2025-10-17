@@ -3,7 +3,7 @@ import {provideRouter} from '@angular/router';
 
 import {routes} from './app.routes';
 import {provideHttpClient} from '@angular/common/http';
-import {NgxMapboxGLModule} from 'ngx-mapbox-gl';
+import {NgxMapLibreGLModule} from '@maplibre/ngx-maplibre-gl';
 import {provideAngularSvgIcon} from 'angular-svg-icon';
 
 export const appConfig: ApplicationConfig = {
@@ -12,10 +12,6 @@ export const appConfig: ApplicationConfig = {
 		provideRouter(routes),
 		provideHttpClient(),
 		provideAngularSvgIcon(),
-		importProvidersFrom(
-			NgxMapboxGLModule.withConfig({
-				accessToken: 'pk.eyJ1IjoiZHNhbHBoYTIwMCIsImEiOiJjbTQ3YmdmdmswNGNsMmpzb3EwNTU0dW5wIn0.JH1BOfGg8Vri5LfkEiU4XA',
-			})
-		)
+		importProvidersFrom(NgxMapLibreGLModule)
 	],
 };
