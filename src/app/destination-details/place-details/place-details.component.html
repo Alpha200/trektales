@@ -4,6 +4,12 @@
 				<h1>{{place.title}}</h1>
 				<app-place-info [place]="place"></app-place-info>
 			</div>
+			@for (picture of place.pictureGallery; track picture.id) {
+				<img
+					[src]="apiBaseUrl + picture.url"
+					[alt]="'a'"
+				/>
+			}
 			@for (picture of place.pictures; track picture.id) {
 				<img
 					[src]="apiBaseUrl + $any(picture).image.url"

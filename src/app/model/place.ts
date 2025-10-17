@@ -5,6 +5,7 @@ export interface Place {
 	rating?: number;
 	details?: StrapiComponent[];
 	pictures?: StrapiComponent[];
+	pictureGallery?: Picture[];
 	id: string;
 	title: string;
 }
