@@ -1,0 +1,71 @@
+<div class="map-container">
+	<mgl-map
+		[style]="'https://tiles.openfreemap.org/styles/liberty'"
+		[fitBounds]="bounds"
+		[fitBoundsOptions]="{padding: 50}"
+	>
+		<mgl-geojson-source
+			id="places"
+			[data]="geoJsonData"
+			[cluster]="true"
+			[clusterMaxZoom]="14"
+			[clusterRadius]="50"
+		></mgl-geojson-source>
+
+		<!-- Cluster circles -->
+		<mgl-layer
+			id="clusters"
+			type="circle"
+			source="places"
+			[filter]="['has', 'point_count']"
+			[paint]="{
+				'circle-color': [
+					'step',
+					['get', 'point_count'],
+					'#51bbd6',
+					10,
+					'#f1f075',
+					30,
+					'#f28cb1'
+				],
+				'circle-radius': [
+					'step',
+					['get', 'point_count'],
+					20,
+					10,
+					30,
+					30,
+					40
+				]
+			}"
+		></mgl-layer>
+
+		<!-- Cluster count text -->
+		<mgl-layer
+			id="cluster-count"
+			type="symbol"
+			source="places"
+			[filter]="['has', 'point_count']"
+			[layout]="{
+				'text-field': '{point_count_abbreviated}',
+				'text-font': ['Open Sans Regular'],
+				'text-size': 12
+			}"
+		></mgl-layer>
+
+		<!-- Unclustered points -->
+		<mgl-layer
+			id="unclustered-point"
+			type="circle"
+			source="places"
+			[filter]="['!', ['has', 'point_count']]"
+			[paint]="{
+				'circle-color': '#11b4da',
+				'circle-radius': 8,
+				'circle-stroke-width': 2,
+				'circle-stroke-color': '#fff'
+			}"
+		></mgl-layer>
+	</mgl-map>
+</div>
+
