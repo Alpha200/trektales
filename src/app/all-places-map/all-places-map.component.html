@@ -19,24 +19,17 @@
 			source="places"
 			[filter]="['has', 'point_count']"
 			[paint]="{
-				'circle-color': [
-					'step',
-					['get', 'point_count'],
-					'#51bbd6',
-					10,
-					'#f1f075',
-					30,
-					'#f28cb1'
-				],
+				'circle-color': '#51bbd6',
 				'circle-radius': [
-					'step',
+					'interpolate',
+					['exponential', 10],
 					['get', 'point_count'],
-					20,
-					10,
-					30,
-					30,
-					40
-				]
+					0, 15,
+					10, 20,
+					100, 25
+				],
+				'circle-stroke-width': 5,
+				'circle-stroke-color': 'white',
 			}"
 		></mgl-layer>
 
@@ -47,8 +40,8 @@
 			source="places"
 			[filter]="['has', 'point_count']"
 			[layout]="{
-				'text-field': '{point_count_abbreviated}',
-				'text-font': ['Open Sans Regular'],
+				'text-field': ['get', 'point_count_abbreviated'],
+				'text-font': ['Noto Sans Regular'],
 				'text-size': 12
 			}"
 		></mgl-layer>

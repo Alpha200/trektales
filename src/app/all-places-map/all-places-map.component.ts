@@ -66,7 +66,6 @@ export class AllPlacesMapComponent implements OnInit {
 			}
 		}
 
-		console.log('locations', locations);
 		return locations;
 	}
 
